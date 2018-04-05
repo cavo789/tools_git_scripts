@@ -59,7 +59,7 @@ IF %Count% GTR 0 (
 	ECHO The repo %FOLDER% should be updated; there are %Count% changes
 )
 
-rm %TMP%\git-status
+DEL %TMP%\git-status
 POPD
 
 GOTO :EOF
