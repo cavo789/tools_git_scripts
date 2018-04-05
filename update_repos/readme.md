@@ -1,4 +1,15 @@
-# Git - Update repositories
+# Git - Update and check if changes not commited
+
+> Provide easy batch scripts for working with repo and Windows
+
+## Table of Contents
+
+- [git_pull](#git_pull)
+- [git_check_status](#git_check_status)
+- [Author](#author)
+- [License](#license)
+
+## git_pull
 
 Make a `git pull` i.e. update your git repos by taking the latest online version of your repositories.
 
@@ -8,60 +19,33 @@ Consider the following situation : you've a `C:\MyRepositories\' folder where yo
 
 So, just put a DOS batch like this one under the `C:\MyRepositories\' folder, call the script f.i. `Pull_Them.bat`. Once correctly parametrized, just fire the script and if everything goes fine... just enjoy ;-)
 
+## git_check_status
+
+This file works like the previous one but will scan all your folders and will detect if you've local repository with modified files not yet commited.
+
+IThis batch will produce an output like :
+
 ```
-CLS
-@ECHO OFF
-ECHO.
-ECHO  =============================================
-ECHO  = Updating repositories                     =
-ECHO  = Christophe Avonture - aesecure.com        =
-ECHO  = https://github.com/cavo789/github_scripts =
-ECHO  =============================================
-
-REM Retrieve any subfolders of the current one (folder where this script
-REM has been stored and started) and call the process subroutine
-
-FOR /f "delims=" %%D IN ('dir /a:d /b') DO (
-    CALL :PROCESS %%~fD %%D
-)
-
-GOTO END:
-
-REM --------------------------------------------------------------------------------------
-
-:PROCESS 
-
-REM Parameters :
-REM    %1  : full directory name (absolute); like C:\Christophe\repositories\aesecure
-REM    %2  : directory name; like aesecure => name of the repository
-
-IF EXIST %1\.git (
-
-    REM The subfolder contains a .git folder => it's a repository
-    REM %2 is the name of the repository 
-    
-    SET FOLDER=%2
-    CALL :GIT_PULL
-    
-) 
-
-GOTO :EOF
-
-REM --------------------------------------------------------------------------------------
-
-:GIT_PULL
-
-ECHO.
-ECHO  Updating %FOLDER%
-PUSHD %FOLDER% >> NULL
-git pull
-POPD
-
-GOTO :EOF
-
-REM --------------------------------------------------------------------------------------
-
-:END
-
-EXIT /B
+=============================================
+= Check if repositories have been changed	  =
+= Christophe Avonture - aesecure.com			=
+= https://github.com/cavo789/github_scripts =
+=============================================
+The repo aesecure-firewall should be updated; there are 1 changes
+The repo marknotes should be updated; there are 4 changes
+The repo marknotes.wiki should be updated; there are 2 changes
+The repo ms_access should be updated; there are 1 changes
+The repo sql_sp_columns should be updated; there are 1 changes
+The repo ssis_export_flatfiles_spec should be updated; there are 1 changes
+The repo vbaExcelRibbonDropdown should be updated; there are 1 changes
 ```
+
+And then you know which repo should be commited.
+
+## Author
+
+AVONTURE Christophe
+
+## License
+
+[MIT](LICENSE)
