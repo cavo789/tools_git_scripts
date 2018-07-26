@@ -67,9 +67,9 @@ define('DELETE_FILES', false);
  *
  * @var serialized array of strings
  */
-define('EXCLUDE', serialize(array(
-    '.git',
-)));
+define('EXCLUDE', serialize([
+	'.git',
+]));
 
 /**
  * Temporary directory we'll use to stage the code before the update. If it
@@ -79,7 +79,7 @@ define('EXCLUDE', serialize(array(
  *
  * @var string Full path including the trailing slash
  */
-define('TMP_DIR', '/tmp/spgd-'.md5(REMOTE_REPOSITORY).'/');
+define('TMP_DIR', '/tmp/spgd-' . md5(REMOTE_REPOSITORY) . '/');
 
 /**
  * Whether to remove the TMP_DIR after the deployment.
@@ -93,7 +93,7 @@ define('CLEAN_UP', true);
  *
  * @var string Full path to the file name
  */
-define('VERSION_FILE', TMP_DIR.'VERSION');
+define('VERSION_FILE', TMP_DIR . 'VERSION');
 
 /**
  * Time limit for each command.
@@ -145,6 +145,6 @@ define('COMPOSER_HOME', false);
  * Email address to be notified on deployment failure.
  *
  * @var string A single email address, or comma separated list of email addresses
- *      e.g. 'someone@example.com' or 'someone@example.com, someone-else@example.com, ...'
+ *             e.g. 'someone@example.com' or 'someone@example.com, someone-else@example.com, ...'
  */
 define('EMAIL_ON_ERROR', false);
