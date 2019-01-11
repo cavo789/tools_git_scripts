@@ -3,7 +3,7 @@ CLS
 ECHO.
 ECHO  =============================================
 ECHO  = Updating repositories                     =
-ECHO  = Christophe Avonture - aesecure.com        =
+ECHO  = Christophe Avonture - avonture.be         =
 ECHO  = https://github.com/cavo789/github_scripts =
 ECHO  =============================================
 
@@ -16,10 +16,10 @@ FOR /f "delims=" %%D IN ('dir /a:d /b') DO (
 
 REM Now, process very specific subfolders : when the repo is in a subfolder like the ones below
 
-FOR %%G IN (aesecure_Scan\aesecure-scanner, afuj\afuj) do ( 
-   SET FOLDER=%%G
-   CALL :GIT_PULL
-)
+REM FOR %%G IN (aesecure_Scan\aesecure-scanner, afuj\afuj) do ( 
+REM    SET FOLDER=%%G
+REM    CALL :GIT_PULL
+REM )
 
 GOTO END:
 
@@ -28,8 +28,8 @@ REM ----------------------------------------------------------------------------
 :PROCESS 
 
 REM Parameters :
-REM    %1  : full directory name (absolute); like C:\Christophe\repositories\aesecure
-REM    %2  : directory name; like aesecure => name of the repository
+REM    %1  : full directory name (absolute); like C:\Christophe\repositories\github_scripts
+REM    %2  : directory name; like github_scripts => name of the repository
 
 IF EXIST %1\.git (
 

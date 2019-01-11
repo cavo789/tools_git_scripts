@@ -3,7 +3,7 @@ CLS
 ECHO.
 ECHO  =============================================
 ECHO  = Check if repositories have been changed	  =
-ECHO  = Christophe Avonture - aesecure.com        =
+ECHO  = Christophe Avonture - avonture.be         =
 ECHO  = https://github.com/cavo789/github_scripts =
 ECHO  =============================================
 
@@ -21,8 +21,8 @@ REM ----------------------------------------------------------------------------
 :PROCESS
 
 REM Parameters :
-REM	%1  : full directory name (absolute); like C:\Christophe\repositories\aesecure
-REM	%2  : directory name; like aesecure => name of the repository
+REM	%1  : full directory name (absolute); like C:\Christophe\repositories\github_scripts
+REM	%2  : directory name; like github_scripts => name of the repository
 
 IF EXIST %1\.git (
 
