@@ -2,7 +2,7 @@ CLS
 @ECHO OFF
 ECHO.
 ECHO  =============================================
-ECHO  = Check if repositories have been changed	  =
+ECHO  = Check if repositories have been changed   =
 ECHO  = Christophe Avonture - avonture.be         =
 ECHO  = https://github.com/cavo789/github_scripts =
 ECHO  =============================================
