@@ -24,6 +24,8 @@ REM Parameters :
 REM	%1  : full directory name (absolute); like C:\Christophe\repositories\github_scripts
 REM	%2  : directory name; like github_scripts => name of the repository
 
+REM ECHO Check status for %2
+
 IF EXIST %1\.git (
 
 	REM The subfolder contains a .git folder => it's a repository
