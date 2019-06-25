@@ -4,20 +4,11 @@
 
 ## Table of Contents
 
-- [git_pull](#git_pull)
 - [git_check_status](#git_check_status)
+- [git_get_origin](#git_get_origin)
+- [git_pull](#git_pull)
 - [Author](#author)
 - [License](#license)
-
-## git_pull
-
-Make a `git pull` i.e. update your git repos by taking the latest online version of your repositories.
-
-The idea behind the script is to make a pull for several repos, in a loop.
-
-Consider the following situation : you've a `C:\MyRepositories\' folder where you've put a lot of repositories. You don't want (anymore) to make a`git pull` one by one, certainly since you've more than 5 repos.
-
-So, just put a DOS batch like this one under the `C:\MyRepositories\' folder, call the script f.i.`Pull_Them.bat`. Once correctly parametrized, just fire the script and if everything goes fine... just enjoy ;-)
 
 ## git_check_status
 
@@ -41,6 +32,37 @@ The repo vbaExcelRibbonDropdown should be updated; there are 1 changes
 ```
 
 And then you know which repo should be committed.
+
+## git_get_origin
+
+Loop any sub-folders and display the origin of each repos.
+
+This batch will produce an output like :
+
+```
+ =============================================
+ = Display the origin of repositories        =
+ = Christophe Avonture - avonture.be         =
+ = https://github.com/cavo789/github_scripts =
+ =============================================
+https://bitbucket.org/cavo789/xxxxxxxxxx
+https://bitbucket.org/cavo789/yyyyyyyyyy
+https://github.com/cavo789/aaaaaaaa.git
+https://github.com/cavo789/bbbbbbbb.git
+https://github.com/cavo789/cccccccc.git
+```
+
+So, it's easy to determine where you've stored each repositories.
+
+## git_pull
+
+Make a `git pull` i.e. update your git repos by taking the latest online version of your repositories.
+
+The idea behind the script is to make a pull for several repos, in a loop.
+
+Consider the following situation : you've a `C:\MyRepositories\' folder where you've put a lot of repositories. You don't want (anymore) to make a`git pull` one by one, certainly since you've more than 5 repos.
+
+So, just put a DOS batch like this one under the `C:\MyRepositories\' folder, call the script f.i.`Pull_Them.bat`. Once correctly parametrized, just fire the script and if everything goes fine... just enjoy ;-)
 
 ## Author
 
