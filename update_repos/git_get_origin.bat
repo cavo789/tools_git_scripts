@@ -16,7 +16,7 @@ REM Retrieve any subfolders of the current one (folder where this script
 REM has been stored and started) and call the process subroutine
 
 FOR /f "delims=" %%D IN ('dir /a:d /b') DO (
-	CALL :PROCESS %%~fD %%D
+    CALL :PROCESS %%~fD %%D
 )
 
 GOTO END:
@@ -33,11 +33,11 @@ REM ECHO Check status for %2
 
 IF EXIST %1\.git (
 
-	REM The subfolder contains a .git folder => it's a repository
-	REM %2 is the name of the repository
+    REM The subfolder contains a .git folder => it's a repository
+    REM %2 is the name of the repository
 
-	SET FOLDER=%2
-	CALL :GIT_CHECK
+    SET FOLDER=%2
+    CALL :GIT_CHECK
 
 )
 
@@ -51,6 +51,7 @@ PUSHD %FOLDER% >nul
 
 REM Run the "git remote ..." command and redirect to output to the ORIGIN variable
 FOR /f %%i IN ('git remote get-url origin') do set ORIGIN=%%i
+
 ECHO %FOLDER% is linked to %ORIGIN%
 
 POPD
