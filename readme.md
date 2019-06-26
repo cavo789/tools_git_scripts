@@ -45,14 +45,18 @@ This batch will produce an output like :
  = Christophe Avonture - avonture.be         =
  = https://github.com/cavo789/github_scripts =
  =============================================
-https://bitbucket.org/cavo789/xxxxxxxxxx
-https://bitbucket.org/cavo789/yyyyyyyyyy
-https://github.com/cavo789/aaaaaaaa.git
-https://github.com/cavo789/bbbbbbbb.git
-https://github.com/cavo789/cccccccc.git
+
+Info: to change the origin of a repo, you can use the following statement:
+git remote set-url origin url_to_new_repo
+
+marknotes is linked to https://bitbucket.org/cavo789/xxxxxxxxxx
+marknotes_csv2html is linked to https://bitbucket.org/cavo789/yyyyyyyyyy
+marknotes_html2md is linked to https://github.com/cavo789/aaaaaaaa.git
+marknotes_md2html is linked to https://github.com/cavo789/bbbbbbbb.git
+marknotes_xls2md is linked to https://github.com/cavo789/cccccccc.git
 ```
 
-So, it's easy to determine where you've stored each repositories.
+So, it's easy to determine where you've stored each repositories. Each folder (i.e. each repo) will be listed with his origin.
 
 ### git_pull
 
