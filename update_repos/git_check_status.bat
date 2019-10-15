@@ -1,48 +1,59 @@
-CLS
-@ECHO OFF
+@echo off
+
+cls
+
+setlocal EnableDelayedExpansion
+
 ECHO.
 ECHO  =============================================
 ECHO  = Check if repositories have been changed   =
 ECHO  = Christophe Avonture - avonture.be         =
 ECHO  = https://github.com/cavo789/github_scripts =
 ECHO  =============================================
-
-REM Retrieve any subfolders of the current one (folder where this script
-REM has been stored and started) and call the process subroutine
+ECHO.
 
 FOR /f "delims=" %%D IN ('dir /a:d /b') DO (
-    CALL :PROCESS %%~fD %%D
+    CALL :fnProcessFolder %%~fD %%D
 )
+
+ECHO [32mDone, all folders have been processed.[0m
 
 GOTO END:
 
-REM --------------------------------------------------------------------------------------
+::--------------------------------------------------------
+::-- fnProcessFolder -
+::      %1 = full name of the folder that should be processed
+::           f.i. "C:\Christophe\Repository\Repo1"
+::      %2 = basename of the folder
+::           f.i. "Repo1"
+::--------------------------------------------------------
+:fnProcessFolder
 
-:PROCESS
+SET folder=%1
 
-REM Parameters :
-REM	%1  : full directory name (absolute); like C:\Christophe\repositories\github_scripts
-REM	%2  : directory name; like github_scripts => name of the repository
+:: Check if the folder is a repo (i.e. has the .git sub-folder)
+IF EXIST %folder%\.git (
+    ECHO  Process %folder%
+    ECHO.
 
-REM ECHO Check status for %2
+    ::Go inside that folder
+    PUSHD %folder% >nul
 
-IF EXIST %1\.git (
+    :: Commit changes to the repository
+    CALL :fnCheckStatus
 
-    REM The subfolder contains a .git folder => it's a repository
-    REM %2 is the name of the repository
-
-    SET FOLDER=%2
-    CALL :GIT_CHECK
+    ::Return in the original folder
+    POPD
 
 )
 
-GOTO :EOF
+GOTO:EOF
 
-REM --------------------------------------------------------------------------------------
-
-:GIT_CHECK
-
-PUSHD %FOLDER% >nul
+::--------------------------------------------------------
+::-- fnCheckStatus - If needed, commit changes to the repo
+::      %1 = name of the folder that should be processed
+::--------------------------------------------------------
+:fnCheckStatus
 
 REM "git status --porcelain" returns the list of files that was changed
 REM For instance
@@ -58,16 +69,21 @@ SET /P Count= < %TMP%\git-status
 
 REM If greater than zero, then we've local changes not yet commited
 IF %Count% GTR 0 (
-    ECHO The repo %FOLDER% should be updated; there are %Count% changes
+    ECHO    [43m------------------------------------[0m
+    ECHO    [43m- Warning: Uncommitted files found -[0m
+    ECHO    [43m------------------------------------[0m
+    ECHO.
+) ELSE (
+    ECHO     [32mThere is no local changes for the repo[0m
+    ECHO.
 )
 
 DEL %TMP%\git-status
-POPD
 
-GOTO :EOF
+GOTO:EOF
 
-REM --------------------------------------------------------------------------------------
-
+::--------------------------------------------------------
+::-- This is the end
+::--------------------------------------------------------
 :END
-
-exit /B
+endlocal
