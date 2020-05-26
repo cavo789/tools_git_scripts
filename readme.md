@@ -68,5 +68,6 @@ Consider the following situation : you've a `C:\MyRepositories\' folder where yo
 
 So, just put a DOS batch like this one under the `C:\MyRepositories\' folder, call the script f.i.`Pull_Them.bat`. Once correctly parametrized, just fire the script and if everything goes fine... just enjoy ;-)
 
+There is a DOS batch script and a Powershell one too.
 
 [go to update_repos](https://github.com/cavo789/git_scripts/tree/master/update_repos)
