@@ -1,6 +1,6 @@
-![Banner](images/banner.jpg)
-
 # Git scripts
+
+![Banner](./banner.svg)
 
 ## deploy
 
